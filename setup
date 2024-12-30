@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+echo """
+-------------------------------------------------------------
+                    Setup Initiated 
+-------------------------------------------------------------
+"""
+
+config_location=$HOME/.config/config
+
+# Delete older config file
+rm -f $config_location
+
+# Create exportable config file for .zshrc
+touch $config_location
+echo '''#!/usr/bin/env bash
+
+# This is an auto generated file. Please do not edit manually.
+''' >> $config_location
+
+#Export initial terminal configs
+echo '''# Import initial terminal prompt
+source $HOME/.config/zsh_scripts/simple_terminal_prompt
+
+# Alias
+source $HOME/.config/zsh_scripts/aliases
+
+# Misc config
+source $HOME/.config/zsh_scripts/misc_configs
+''' >> $config_location
+
+# END 
+echo """
+-------------------------------------------------------------
+        Setup complete | Reload .zshrc 
+-------------------------------------------------------------
+"""

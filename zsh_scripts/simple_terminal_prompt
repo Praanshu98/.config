@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Function to determine if the shell is privileged
+is_privileged() {
+    if [[ $EUID -eq 0 ]]; then
+        echo "##"
+    else
+        echo "=>"
+    fi
+}
+
+# Function to get the current Git branch and indicate uncommitted changes
+parse_git_branch() {
+    local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [[ -n $branch ]]; then
+        [[ -n $(git status --porcelain 2>/dev/null) ]] && echo "git:(%F{yellow}$branch%f%F{green})%f* " || echo "git:(%F{yellow}$branch%f%F{green}    ) "
+    fi 
+}
+
+# Shell prompt
+setopt PROMPT_SUBST
+#PS1='%n@%m %1~ %# '
+PS1='%3~ %F{green}$(parse_git_branch)%f
+$(is_privileged) '
+
+# Enable Git command auto-completion
+autoload -Uz compinit && compinit

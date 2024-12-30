@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# History configuration 
+HISTSIZE=10000 
+SAVEHIST=10000 
+HISTFILE=~/.zsh_history 
+setopt INC_APPEND_HISTORY 
+setopt SHARE_HISTORY 
