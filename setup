@@ -29,6 +29,9 @@ source $HOME/.config/zsh_scripts/aliases
 source $HOME/.config/zsh_scripts/misc_configs
 ''' >> $config_location
 
+#setup starship
+source ./starship/setup
+
 # END 
 echo """
 -------------------------------------------------------------

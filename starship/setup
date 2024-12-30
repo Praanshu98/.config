@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Uninstall starship if exists
+brew uninstall starship && brew cleanup 
+
+# Install starship
+brew install starship
+
+echo '''#Starship Config
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml" 
+eval "$(starship init zsh)"
+''' >> $HOME/.config/config
