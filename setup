@@ -20,7 +20,7 @@ echo '''#!/usr/bin/env bash
 
 #Export initial terminal configs
 echo '''# Import initial terminal prompt
-source $HOME/.config/zsh_scripts/simple_terminal_prompt
+#source $HOME/.config/zsh_scripts/simple_terminal_prompt
 
 # Alias
 source $HOME/.config/zsh_scripts/aliases
@@ -31,6 +31,26 @@ source $HOME/.config/zsh_scripts/misc_configs
 
 #setup starship
 source ./starship/setup
+
+#setup iterm2
+brew install --cask iterm2
+
+#setup neovim
+brew install neovim
+
+#setup ripgrep
+brew install ripgrep
+
+#setup tree
+brew install tree
+
+#setup fzf
+brew install fzf
+
+echo '''# fzf config
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+''' >> $config_location
 
 # END 
 echo """

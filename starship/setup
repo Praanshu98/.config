@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Uninstall starship if exists
-brew uninstall starship && brew cleanup 
-
 # Install starship
 brew install starship
 
