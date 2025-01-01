@@ -8,18 +8,41 @@ echo """
 
 config_location=$HOME/.config/config
 
-# Delete older config file
+# Delete older config if exist
 rm -f $config_location
+#
+# Install starship
+brew install starship
 
-# Create exportable config file for .zshrc
+#install iterm2
+brew install --cask iterm2
+
+#install neovim
+brew install neovim
+
+#install ripgrep
+brew install ripgrep
+
+#install tree
+brew install tree
+
+#install fzf
+brew install fzf
+
+#install font-fira-code
+brew install font-fira-code
+
+#install tmux
+brew install tmux
+source ./tmux/setup
+
+#Create exportable config file for .zshrc
 touch $config_location
 echo '''#!/usr/bin/env bash
 
 # This is an auto generated file. Please do not edit manually.
-''' >> $config_location
 
-#Export initial terminal configs
-echo '''# Import initial terminal prompt
+# Import initial terminal prompt
 #source $HOME/.config/zsh_scripts/simple_terminal_prompt
 
 # Alias
@@ -27,29 +50,14 @@ source $HOME/.config/zsh_scripts/aliases
 
 # Misc config
 source $HOME/.config/zsh_scripts/misc_configs
-''' >> $config_location
 
-#setup starship
-source ./starship/setup
+# Starship Config
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml" 
+eval "$(starship init zsh)"
 
-#setup iterm2
-brew install --cask iterm2
-
-#setup neovim
-brew install neovim
-
-#setup ripgrep
-brew install ripgrep
-
-#setup tree
-brew install tree
-
-#setup fzf
-brew install fzf
-
-echo '''# fzf config
-# Set up fzf key bindings and fuzzy completion
+# fzf config to set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
 ''' >> $config_location
 
 # END 

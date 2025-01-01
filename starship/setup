@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# Install starship
-brew install starship
-
-echo '''#Starship Config
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml" 
-eval "$(starship init zsh)"
-''' >> $HOME/.config/config
