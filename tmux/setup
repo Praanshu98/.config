@@ -1,7 +1,4 @@
-#!/usr/in/env bash
-:q
-
-
+#!/usr/bin/env bash
 
 # refresh new .tumx.conf
 rm -f $HOME/.tmux.conf

@@ -32,6 +32,10 @@ brew install fzf
 #install font-fira-code
 brew install font-fira-code
 
+#install ghostty
+brew install --cask ghostty
+source ./ghostty/setup
+
 #install tmux
 brew install tmux
 source ./tmux/setup

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo '''theme = tokyonight
+font-size = 16
+background = 111118
+foreground = c6d0f5
+cursor-color = b67ae9
+selection-background = 626880
+selection-foreground = c6d0f5
+shell-integration-features = no-cursor
+cursor-style = block
+''' >> $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
