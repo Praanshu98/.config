@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
 # Alias
+
+# Tools
 alias v="nvim"
+alias nv="nvim"
 alias ls="eza --color=always --color-scale-mode=gradient --icons=auto -a"
 alias c="clear"
+
+# Git
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'
 alias gco='git checkout'
+alias gl='git log --graph --oneline'
+
+# Python
 alias python='python3'
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Function to determine if the shell is privileged
 is_privileged() {
     if [[ $EUID -eq 0 ]]; then
@@ -19,8 +20,8 @@ parse_git_branch() {
 # Shell prompt
 setopt PROMPT_SUBST
 #PS1='%n@%m %1~ %# '
-PS1='%3~ %F{green}$(parse_git_branch)%f
-$(is_privileged) '
+#PS1='%3~ %F{green}$(parse_git_branch)%f
+#$(is_privileged) '
 
 # Enable Git command auto-completion
 autoload -Uz compinit && compinit
