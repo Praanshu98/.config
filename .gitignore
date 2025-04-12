@@ -1,3 +1,4 @@
 .DS_Store
 config
 simple-update-notifier
+./nvim/lazy-lock.json
