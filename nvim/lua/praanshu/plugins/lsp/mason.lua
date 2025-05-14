@@ -49,7 +49,8 @@ return {
 				"isort", -- python formatter
 				"black", -- python formatter
 				"pylint", -- python linter
-				"eslint", -- js linter
+				{ "eslint_d", version = "13.1.2" },
+				-- "eslint", -- js linter
 			},
 		})
 	end,
