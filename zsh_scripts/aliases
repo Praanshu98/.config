@@ -7,6 +7,8 @@ alias v="nvim"
 alias nv="nvim"
 alias ls="eza --color=always --color-scale-mode=gradient --icons=auto -a"
 alias c="clear"
+alias ll="eza -lah --icons"
+alias tree="eza --tree --icons"
 
 # Git
 alias gs='git status'

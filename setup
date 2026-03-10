@@ -10,7 +10,7 @@ config_location=$HOME/.config/config
 
 # Delete older config if exist
 rm -f $config_location
-#
+
 # Install starship
 brew install starship
 
