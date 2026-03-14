@@ -2,3 +2,9 @@
 config
 simple-update-notifier
 nvim/lazy-lock.json
+filezilla
+envman
+htop
+qBittorrent
+cagent
+wireshark
