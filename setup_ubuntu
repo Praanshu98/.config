@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+echo """
+-------------------------------------------------------------
+                    Setup Initiated 
+-------------------------------------------------------------
+"""
+
+config_location=$HOME/.config/config
+
+# Update packages
+sudo apt update && sudo apt upgrade -y
+
+# Install Essential packages
+sudo apt-get install build-essential
+
+# Intall git
+sudo apt install git -y
+
+# Intall Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Homebrew to path
+echo >> /home/ubuntu/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/ubuntu/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+# Reconfig .bashrc
+source ../.bashrc
+
+# Check brew
+brew doctor
+
+# Intall gcc with brew
+brew install gcc
+
+# Delete older config if exist
+rm -f $config_location
+
+# Install starship
+brew install starship
+
+#install neovim
+brew install neovim
+
+#install ripgrep
+brew install ripgrep
+
+#install tree
+brew install tree
+
+#install fzf
+brew install fzf
+
+#install unzip
+brew install unzip
+
+#install font-fira-code -- install unzip first
+brew install font-fira-code
+
+#install tmux
+brew install tmux
+
+# Intall eza
+brew install eza
+
+source ./tmux/setup
+
+#Create exportable config file for .bashrc
+touch $config_location
+echo '''#!/usr/bin/env bash
+
+# This is an auto generated file. Please do not edit manually.
+
+# Import initial terminal prompt
+#source $HOME/.config/bash_scripts/simple_terminal_prompt
+
+# Alias
+source $HOME/.config/bash_scripts/aliases
+
+# Misc config
+source $HOME/.config/bash_scripts/misc_configs
+
+# Starship Config
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml" 
+eval "$(starship init bash)"
+
+# fzf config to set up fzf key bindings and fuzzy completion
+source <(fzf --bash)
+
+''' >> $config_location
+
+source ../.bashrc
+
+# END 
+echo """
+-------------------------------------------------------------
+        Setup complete | Reload .bashrc
+-------------------------------------------------------------
+"""
+
