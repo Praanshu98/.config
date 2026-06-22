@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+rm -f $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+
 echo '''theme = tokyonight
 font-size = 16
 background = 111118

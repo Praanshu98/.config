@@ -35,6 +35,9 @@ brew install eza
 #install nvm
 brew install nvm
 
+# setup nvm
+mkdir -p "$HOME/.nvm"
+
 #install font-fira-code -- install unzip first
 brew install font-fira-code
 
@@ -45,6 +48,88 @@ source ./ghostty/setup
 #install tmux
 brew install tmux
 source ./tmux/setup
+
+#install rectangle
+brew install --cask rectangle
+
+#install dbeaver
+brew install --cask dbeaver-community
+
+#install vscode
+brew install --cask visual-studio-code
+
+#install mongodb compass
+brew trust mongodb/brew
+brew tap mongodb/brew
+brew install --cask mongodb-compass
+
+#install docker
+brew install --cask docker
+
+#install postman
+brew install --cask postman
+
+#install wireshark
+brew install --cask wireshark
+
+#install postgres
+brew install postgresql@17
+
+#install mysql
+brew install mysql
+
+#install curl
+brew install curl
+
+#install bat
+brew install bat
+
+#install wget
+brew install wget
+
+#install htop
+brew install htop
+
+# Install stats
+brew install --cask stats
+
+# install android-platform-tools
+brew install android-platform-tools
+
+# install java
+brew install openjdk@21
+
+# setup java
+sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
+
+# install claude
+brew install --cask claude
+
+# install chatgpt
+brew install --cask chatgpt
+
+#install logi-options+
+brew install --cask logi-options+
+
+#install whatsapp
+brew install --cask whatsapp
+
+# install obsidian
+brew install --cask obsidian
+
+# install autoupdate
+brew tap domt4/autoupdate
+brew install pinentry-mac
+
+# setup autoupdate
+brew trust domt4/autoupdate
+brew autoupdate start 43200 --upgrade --cleanup --immediate --sudo
+
+# Start services
+brew services start mongodb/brew/mongodb-community
+brew services start postgresql@17
+brew services start mysql
 
 #Create exportable config file for .zshrc
 touch $config_location
@@ -72,6 +157,17 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+
+# Java
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+
 ''' >> $config_location
 
 # Create .gitconfig
@@ -97,6 +193,6 @@ export NVM_DIR="$HOME/.nvm"
 # END 
 echo """
 -------------------------------------------------------------
-        Setup complete | Reload .zshrc 
+        Setup complete | Reload .zshrc  |  Reload .tmux.conf and Press prefix + I to install plugins
 -------------------------------------------------------------
 """
