@@ -39,7 +39,7 @@ return {
 				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 				keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 				keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+				keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
 			end,
 		})
 

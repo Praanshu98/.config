@@ -122,6 +122,10 @@ brew install --cask obsidian
 brew tap domt4/autoupdate
 brew install pinentry-mac
 
+# install tree-sitter
+brew install tree-sitter
+npm install -g tree-sitter-cli
+
 # setup autoupdate
 brew trust domt4/autoupdate
 brew autoupdate start 43200 --upgrade --cleanup --immediate --sudo
@@ -167,6 +171,9 @@ export PATH="$PATH:$ANDROID_HOME/emulator"
 # Java
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+
+# Python
+export PATH="/opt/homebrew/bin:$PATH"
 
 ''' >> $config_location
 
